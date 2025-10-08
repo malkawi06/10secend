@@ -1,0 +1,341 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #0a0118 0%, #1a0b2e 100%);
+    color: white;
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+
+.background-svg {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.wave-path {
+    animation: wave 20s ease-in-out infinite;
+}
+
+.wave-2 {
+    animation: wave 15s ease-in-out infinite reverse;
+}
+
+.wave-3 {
+    animation: wave 25s ease-in-out infinite;
+}
+
+.wave-4 {
+    animation: wave 18s ease-in-out infinite reverse;
+}
+
+@keyframes wave {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+.pulse-dot {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.delay-1 {
+    animation-delay: 1s;
+}
+
+.delay-2 {
+    animation-delay: 2s;
+}
+
+.delay-3 {
+    animation-delay: 0.5s;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 0.6;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+.logo {
+    position: fixed;
+    top: 2rem;
+    left: 2rem;
+    z-index: 10;
+}
+
+.logo img {
+    height: 150px;
+    width: auto;
+    filter: drop-shadow(0 10px 30px rgba(139, 92, 246, 0.5));
+    opacity: 0.9;
+    transition: opacity 0.3s;
+}
+
+.logo img:hover {
+    opacity: 1;
+}
+
+.best-score {
+    position: fixed;
+    top: 2rem;
+    right: 2rem;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    padding: 1rem 1.5rem;
+    z-index: 10;
+    display: none;
+}
+
+.best-score.show {
+    display: block;
+}
+
+.score-label {
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 0.25rem;
+}
+
+.score-value {
+    font-size: 1.5rem;
+    font-weight: bold;
+    background: linear-gradient(to right, #fff, rgba(255, 255, 255, 0.7));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.container {
+    position: relative;
+    z-index: 1;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    gap: 3rem;
+}
+
+.header {
+    text-align: center;
+}
+
+h1 {
+    font-size: clamp(3rem, 8vw, 6rem);
+    font-weight: bold;
+    background: linear-gradient(to bottom, #fff, #fff, rgba(255, 255, 255, 0.7));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 10px 30px rgba(139, 92, 246, 0.5));
+    margin-bottom: 1rem;
+}
+
+.subtitle {
+    font-size: clamp(1.25rem, 3vw, 1.5rem);
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 500;
+}
+
+.timer-wrapper {
+    position: relative;
+}
+
+.timer-glow {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, #8B5CF6, #EC4899);
+    border-radius: 24px;
+    filter: blur(40px);
+    opacity: 0.5;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.timer-container {
+    position: relative;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+    backdrop-filter: blur(30px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 24px;
+    padding: 3rem 4rem;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+.timer {
+    font-size: clamp(5rem, 12vw, 8rem);
+    font-weight: bold;
+    background: linear-gradient(to right, #fff, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.05em;
+}
+
+.buttons {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.liquid-button {
+    position: relative;
+    padding: 1rem 3rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: white;
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.8), rgba(236, 72, 153, 0.8));
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 12px;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.liquid-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s;
+}
+
+.liquid-button:hover::before {
+    left: 100%;
+}
+
+.liquid-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(139, 92, 246, 0.5);
+}
+
+.liquid-button:active {
+    transform: translateY(0);
+}
+
+.liquid-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.liquid-button:disabled:hover {
+    box-shadow: none;
+}
+
+.liquid-button span {
+    position: relative;
+    z-index: 1;
+}
+
+.result {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    padding: 1.5rem 3rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: scaleIn 0.3s ease-out;
+}
+
+.result p {
+    font-size: clamp(1.5rem, 4vw, 2.25rem);
+    font-weight: bold;
+    background: linear-gradient(to right, #fff, rgba(255, 255, 255, 0.8));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+@keyframes scaleIn {
+    from {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.instructions {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 2rem;
+    max-width: 500px;
+    margin-top: 2rem;
+}
+
+.instructions h3 {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.instructions ul {
+    list-style: none;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 2;
+}
+
+.instructions li::before {
+    content: '• ';
+    color: #8B5CF6;
+    font-weight: bold;
+    margin-left: 0.5rem;
+}
+
+@media (max-width: 768px) {
+    .logo {
+        top: 1rem;
+        left: 1rem;
+    }
+    
+    .logo img {
+        height: 60px;
+    }
+    
+    .best-score {
+        top: 1rem;
+        right: 1rem;
+        padding: 0.75rem 1rem;
+    }
+    
+    .timer-container {
+        padding: 2rem 2rem;
+    }
+    
+    .liquid-button {
+        padding: 0.75rem 2rem;
+        font-size: 1rem;
+    }
+}

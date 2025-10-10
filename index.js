@@ -42,8 +42,8 @@ function handleStop() {
     let emoji = '';
     
     if (elapsed >= 9.90 && elapsed <= 10.10) {
-        emoji = '🎯';
-        resultMessage = 'مثالي! دقة عالية';
+        emoji = '';
+        resultMessage = 'وووولك زلممة خذ حبة حلو';
         
         if (bestScore === null || Math.abs(elapsed - 10) < Math.abs(bestScore - 10)) {
             bestScore = elapsed;
@@ -51,15 +51,15 @@ function handleStop() {
             bestScoreDiv.classList.add('show');
         }
     } else if (elapsed >= 9.70 && elapsed <= 10.30) {
-        emoji = '👏';
-        resultMessage = 'قريب جداً!';
+        emoji = '';
+        resultMessage = 'قرررربتتتت';
     } else if (elapsed >= 9.50 && elapsed <= 10.50) {
-        emoji = '💪';
-        resultMessage = 'جيد! حاول مرة أخرى';
+        emoji = '';
+        resultMessage = 'بدك فت خبز ';
     } else {
-        emoji = '⚠️';
+        emoji = '';
         const diff = Math.abs(10 - elapsed);
-        resultMessage = `فارق ${diff.toFixed(2)} ثانية`;
+        resultMessage = `الفرق ${diff.toFixed(2)} ثانية بسس`;
     }
     
     resultDiv.innerHTML = `<p>${emoji} ${resultMessage}</p>`;

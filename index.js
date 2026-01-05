@@ -41,21 +41,21 @@ function handleStop() {
     let resultMessage = '';
     let emoji = '';
     
-    if (elapsed >= 9.99 && elapsed <= 10.05) {
+    if (elapsed >= 9.99 && elapsed <= 10.01) {
         emoji = '';
-        resultMessage = 'عشان ما تزعل ربحت معنا مبرووك ❤️';
+        resultMessage = 'عشان ما تزعل ربحت معنا مبرووك ';
         
         if (bestScore === null || Math.abs(elapsed - 10) < Math.abs(bestScore - 10)) {
             bestScore = elapsed;
             bestScoreValue.textContent = formatTime(bestScore * 1000);
             bestScoreDiv.classList.add('show');
         }
-    } else if (elapsed >= 9.70 && elapsed <= 10.30) {
+    } else if (elapsed >= 9.70 && elapsed <= 10.02) {
         emoji = '';
-        resultMessage = ' 🫣 قرررربتتتت لكن ما ربحت ';
+        resultMessage = '  قرررربتتتت لكن ما ربحت ';
     } else if (elapsed >= 9.50 && elapsed <= 10.50) {
         emoji = '';
-        resultMessage = 'بدك فت خبز 🙄  ';
+        resultMessage = 'بدك فت خبز   ';
     } else {
         emoji = '';
         const diff = Math.abs(10 - elapsed);
@@ -70,4 +70,5 @@ function handleStop() {
 
 startBtn.addEventListener('click', handleStart);
 stopBtn.addEventListener('click', handleStop);
+
 

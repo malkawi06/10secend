@@ -41,9 +41,9 @@ function handleStop() {
     let resultMessage = '';
     let emoji = '';
     
-    if (elapsed >= 9.90 && elapsed <= 10.10) {
+    if (elapsed >= 9.99 && elapsed <= 10.05) {
         emoji = '';
-        resultMessage = 'وووولك زلممة خذ حبة حلو';
+        resultMessage = 'عشان ما تزعل ربحت معنا مبرووك ❤️';
         
         if (bestScore === null || Math.abs(elapsed - 10) < Math.abs(bestScore - 10)) {
             bestScore = elapsed;
@@ -52,10 +52,10 @@ function handleStop() {
         }
     } else if (elapsed >= 9.70 && elapsed <= 10.30) {
         emoji = '';
-        resultMessage = 'قرررربتتتت';
+        resultMessage = ' 🫣 قرررربتتتت لكن ما ربحت ';
     } else if (elapsed >= 9.50 && elapsed <= 10.50) {
         emoji = '';
-        resultMessage = 'بدك فت خبز ';
+        resultMessage = 'بدك فت خبز 🙄  ';
     } else {
         emoji = '';
         const diff = Math.abs(10 - elapsed);
@@ -70,3 +70,4 @@ function handleStop() {
 
 startBtn.addEventListener('click', handleStart);
 stopBtn.addEventListener('click', handleStop);
+
